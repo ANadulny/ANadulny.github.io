@@ -1,0 +1,33 @@
+#
+	//// dodana wlasna funkcja \\\\
+#
+function simpleMatrixOperation(matrixA, parameter) {
+    var m;
+    if(parameter == 7) {
+        m = Matrix();
+		var i = 0;
+        while( i < 2 ) {
+			var j = 0;
+			while( j < 2 ) {
+				m.setValue( i, j, ( i + 1) * ( j + 2 ) - i );
+			}    
+		}
+		return m;
+	} else {
+		m.clone (matrixA);
+		return m * 3 + 2; # powinno byc return m * 3 + 2; #
+	}
+}
+
+function main() {
+    # A to jest funkcja main #
+    var matrixA = Matrix(-42, 6, -4.48, 2);
+    var matrixB = Matrix(1, 2, 3, 4);
+    var newMatrix;
+    var parameter = 7;
+	newMatrix = simpleMatrixOperation(matrixA, 4) - simpleMatrixOperation(matrixB, parameter);
+    printf("Zaraz wypisze Ci kolejne elementy nowej macierzy");
+	print(newMatrix);
+    
+	return 0;
+}

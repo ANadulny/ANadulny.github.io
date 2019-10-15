@@ -1,0 +1,33 @@
+#
+//// dodana wlasna funkcja \\\\
+#
+function simpleMatrixOperation(matrixA, parameter) {
+    var matrix;
+    if(parameter  == 1) {
+        var i = 0;
+        while( i < 2 ) {
+			var j = 0;
+			while( j < 2 ) {
+			   matrix[ i ][ j ] = ( i + 1) * ( j + 2 ) - i;
+			}
+		}
+		return matrix;
+	} else {
+		var tmpMatrix = generateDiagonalMatrix();
+		return matrix = matrixA + tmpMatrix;
+	}
+}
+
+function main() {
+    # A to jest funkcja main #
+    var matrixA = generateMatrix(2);
+    var matrixB = generateMatrix(1, 2, 3, 4);
+    var newMatrix;
+    var parameter = 1;
+	newMatrix = simpleMatrixOperation(matrixA, 4) - 
+	simpleMatrixOperation(matrixB, parameter);
+	printf("Zaraz wypisze Ci kolejne elementy nowej macierzy");
+    print(newMatrix);
+    
+	return 0;
+}

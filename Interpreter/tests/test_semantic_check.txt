@@ -1,0 +1,89 @@
+
+function simple(parameter) {
+	printf("Parameter w funkcji simple");
+    print(parameter);
+	return parameter;
+}
+
+function main() {
+
+	var m = generate(9, 4, -3, 0);
+	#
+	simple(m);
+	print(m.determinant());
+	print(m.getValue(0,1));
+	print(m.setValue(0,1, -5));
+	#
+	var n;
+	print(n.clone(m));
+	print(n);
+	#
+	var a = generate(-2, 4, -5, 6);
+	print(a);
+	printf("ma determinant:");
+	print(determinant(a));
+	
+	var b = -6;
+	print(b);
+
+	var c = clone(a);
+	print(c);
+
+
+	printf("To jest determinant a");	
+	b = determinant(a);
+	print(b);
+
+	var d = getValue(1.00, 1);
+	print(d);
+
+	var e = setValue(0, 1, d);
+	print(e);
+
+	
+		m.print(); 
+		var temp2 = 3;
+		var temp = 6;
+		temp2 = temp;
+		print(5);
+		print(temp2);
+		temp = 5;
+	
+		printf("\"ala ma kota\" a");
+		printf("a \"ala ma kota\" a\\\"ato\"");
+
+		var j = 2;
+		while (j < 3){
+				j = j + 1;
+				continue;
+				print(9);
+			}
+
+		j = simple(67);
+		print(j);
+		if( 4 != 3){
+			var i = 1;
+			while (i < 3){
+				print(i);
+				i = i + 1;
+				break;
+			}
+			i = i + 1;
+			print(i);
+			i = i + 1;
+			printf("To jest przed ifem");
+			print(i);
+			if(i == 7){
+				i = i + 1;
+				printf("To jest w ifie");
+				print(i);
+			}
+			printf("To jest po wyjsciu z ifa");
+			print(i);
+			print(3);
+		} else {
+			print(1);
+		}	
+	#
+	return 0;
+}
