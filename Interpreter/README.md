@@ -124,52 +124,52 @@ Wynik poszczególnych etapów analizy pliku, wynik interpretacji końcowej i wyk
 
 
 ## Gramatyka
-program = { functionDef }
-functionDef = “function” identifier “(“ [ parameters ]“)” statementBlock 
-parameters =  identifier { “,” identifier } 
+    program = { functionDef }
+    functionDef = “function” identifier “(“ [ parameters ]“)” statementBlock 
+    parameters =  identifier { “,” identifier } 
 
-statementBlock = “{“ { ifStatement | whileStatement | returnStatement | initStatement “;” | assignOrFunctionCall “;” |  “continue” “;” | “break” “;” | printStatement } “}” 
-ifStatement = “if” “(” logicExpr “)” statementBlock [ “else” statementBlock ] 
-whileStatement = “while” “(“ logicExpr“)” statementBlock 
-returnStatement = “return” mathExpr “;” 
-initStatement = “var” identifier [ restOfAssignStatement ]
-assignOrFunctionCall = identifier ( restOfAssignStatement | functionCall )
-printStatement = “printf” “(” ( stringLiteral ) “)” “;”
+    statementBlock = “{“ { ifStatement | whileStatement | returnStatement | initStatement “;” | assignOrFunctionCall “;” |  “continue” “;” | “break” “;” | printStatement } “}” 
+    ifStatement = “if” “(” logicExpr “)” statementBlock [ “else” statementBlock ] 
+    whileStatement = “while” “(“ logicExpr“)” statementBlock 
+    returnStatement = “return” mathExpr “;” 
+    initStatement = “var” identifier [ restOfAssignStatement ]
+    assignOrFunctionCall = identifier ( restOfAssignStatement | functionCall )
+    printStatement = “printf” “(” ( stringLiteral ) “)” “;”
 
-restOfAssignStatement = assignmentOp mathExpr 
-functionCall = [ “.”  identifier ] “(” [ arguments ] “)” 
-arguments = mathExpr { “,” mathExpr }
+    restOfAssignStatement = assignmentOp mathExpr 
+    functionCall = [ “.”  identifier ] “(” [ arguments ] “)” 
+    arguments = mathExpr { “,” mathExpr }
 
-mathExpr = multiplicativeExpr { additiveOp multiplicativeExpr }
-multiplicativeExpr = baseMathExpr { multiplicativeOp baseMathExpr}
-baseMathExpr = [ unaryMathOp ] ( literal | variable | parentMathExpr ) 
-parentMathExpr = “(“ mathExpr “)”
+    mathExpr = multiplicativeExpr { additiveOp multiplicativeExpr }
+    multiplicativeExpr = baseMathExpr { multiplicativeOp baseMathExpr}
+    baseMathExpr = [ unaryMathOp ] ( literal | variable | parentMathExpr ) 
+    parentMathExpr = “(“ mathExpr “)”
 
-logicExpr = andExpr { orOp andExpr }
-andExpr = relationalExpr { andOp relationalExpr 
-relationalExpr = baseLogicExpr [ relationOp baseLogicExpr ] 
-baseLogicExpr  = [ unaryLogicOp ] ( mathExpr | parentLogicExpr )
-parentLogicExpr = “(“ logicExpr “)”
+    logicExpr = andExpr { orOp andExpr }
+    andExpr = relationalExpr { andOp relationalExpr 
+    relationalExpr = baseLogicExpr [ relationOp baseLogicExpr ] 
+    baseLogicExpr  = [ unaryLogicOp ] ( mathExpr | parentLogicExpr )
+    parentLogicExpr = “(“ logicExpr “)”
 
-assignmentOp = “=”
-unaryLogicOp = “!”
-unaryMathOp = “-”
-orOp = “||”
-andOp = “&&”
-relationOp = “<” | “>” | “<=” | “>=” | “==” | “!=” 
-additiveOp = “+” | “-”
-multiplicativeOp = “*” | “/” 
+    assignmentOp = “=”
+    unaryLogicOp = “!”
+    unaryMathOp = “-”
+    orOp = “||”
+    andOp = “&&”
+    relationOp = “<” | “>” | “<=” | “>=” | “==” | “!=” 
+    additiveOp = “+” | “-”
+    multiplicativeOp = “*” | “/” 
 
-literal = numberLiteral
-variable = identifier [ functionCall ]
-numberLiteral = digit { digit } [ “.” { digit } ]
+    literal = numberLiteral
+    variable = identifier [ functionCall ]
+    numberLiteral = digit { digit } [ “.” { digit } ]
 
-stringLiteral = ‘ “ ‘ { allCharacters - ‘ “ ‘ } ‘ “ ‘ 
-identifier = letter { digit | letter | specialSign }
-commentary = “#” { allCharacters - “#” } “#”
+    stringLiteral = ‘ “ ‘ { allCharacters - ‘ “ ‘ } ‘ “ ‘ 
+    identifier = letter { digit | letter | specialSign }
+    commentary = “#” { allCharacters - “#” } “#”
 
-letter = “a” .. “z” | “A” .. “Z”
-digit = “0” .. “9”
-specialSign = “_”
-allCharacters = ? all visible characters ?
+    letter = “a” .. “z” | “A” .. “Z”
+    digit = “0” .. “9”
+    specialSign = “_”
+    allCharacters = ? all visible characters ?
 
