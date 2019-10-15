@@ -6,9 +6,9 @@ Autor: Adrian Nadulny
 
 
 # 1 Opis projektu
-##    Projekt ma na celu wykonanie interpretera prostego języka z wbudowanym typem macierzy 2D. Język ma być wyposażony w zmienne, podstawowe konstrukcje sterujące (pętla i instrukcja warunkowa), możliwość definiowania funkcji. Ponadto język powinien obsługiwać wyrażenia matematyczne z uwzględnieniem priorytetu operatorów.
+###    Projekt ma na celu wykonanie interpretera prostego języka z wbudowanym typem macierzy 2D. Język ma być wyposażony w zmienne, podstawowe konstrukcje sterujące (pętla i instrukcja warunkowa), możliwość definiowania funkcji. Ponadto język powinien obsługiwać wyrażenia matematyczne z uwzględnieniem priorytetu operatorów.
 
-### Przyjęte założenia dla uproszczenia języka:
+## Przyjęte założenia dla uproszczenia języka:
 Jedynym typem wbudowanym jest typ macierzowy, który przechowuje tylko i wyłącznie liczby. Obsługiwane są tylko macierze jedno i dwuwymiarowe.
 Istnieje możliwość traktowania macierzy jako operacji logicznych prawda/ fałsz, jeżeli wyznacznik macierzy wynosi 0 to w wyrażeniu warunkowym zwracany jest fałsz. Za to pozostałe macierze byłyby traktowane jako prawda.
 Każdy program musi zawierać funkcję main (podobnie jak to jest w języku C++)
@@ -85,37 +85,37 @@ Wynik poszczególnych etapów analizy pliku, wynik interpretacji końcowej i wyk
 
 # 7 Przykład: 
 
-function simple(parameter) {
-    printf("Parameter w funkcji simple");
-    print(parameter);
-    return parameter + 1;
-}
-
-function main() {
-    var p = simple(-3);
-    var q = (4 - simple(p) * 3);
-    print(p);
-    print(q);
-    var p1 = generate2D(0,0,1,0);
-    if((p != -3 && 2 == 1 + 2 || ((p1)))){
-        print(1);
+    function simple(parameter) {
+        printf("Parameter w funkcji simple");
+        print(parameter);
+        return parameter + 1;
     }
 
-    var t = (-7);
-    var t1 = (-(-7))*(-1);
-    var t2 = (-t);
-    print(t);
-    print(t1);
-    print(t2);
+    function main() {
+        var p = simple(-3);
+        var q = (4 - simple(p) * 3);
+        print(p);
+        print(q);
+        var p1 = generate2D(0,0,1,0);
+        if((p != -3 && 2 == 1 + 2 || ((p1)))){
+            print(1);
+        }
 
-    printf("");
-    var matrix = generate(3, 1, 1);
-    print(matrix);
-    printf("Determinant: ");
-    print(matrix.determinant());
+        var t = (-7);
+        var t1 = (-(-7))*(-1);
+        var t2 = (-t);
+        print(t);
+        print(t1);
+        print(t2);
 
-    return 0;
-}
+        printf("");
+        var matrix = generate(3, 1, 1);
+        print(matrix);
+        printf("Determinant: ");
+        print(matrix.determinant());
+
+        return 0;
+    }
 
 
 # 8 Lista tokenów:
